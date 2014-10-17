@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Android-gif-drawable by koral--</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/koral--/android-gif-drawable">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/koral--/android-gif-drawable/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/koral--/android-gif-drawable/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Android-gif-drawable</h1>
+          <p>Views and Drawable for displaying animated GIFs on Android</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/koral--">koral--</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="android-gif-drawable" class="anchor" href="#android-gif-drawable"><span class="octicon octicon-link"></span></a>android-gif-drawable</h1>
+
+<p><a href="https://maven-badges.herokuapp.com/maven-central/pl.droidsonroids.gif/android-gif-drawable"><img src="https://maven-badges.herokuapp.com/maven-central/pl.droidsonroids.gif/android-gif-drawable/badge.svg?style=flat" alt="Maven Central"></a> <a href="https://travis-ci.org/koral--/android-gif-drawable"><img src="https://travis-ci.org/koral--/android-gif-drawable.png?branch=master" alt="Build Status"></a></p>
+
+<p><code>View</code>s and <code>Drawable</code> for animated GIFs in Android.</p>
+
+<h2>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>Bundled GIFLib via JNI is used to render frames. This way should be more efficient than <code>WebView</code> or <code>Movie</code> classes.<br>
+Animation starts automatically and run only if <code>View</code> with attached <code>GifDrawable</code> is visible.</p>
+
+<h2>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<p><strong><a href="https://github.com/koral--/android-gif-drawable/releases/latest">Latest release downloads</a></strong></p>
+
+<h3>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h3>
+
+<h4>
+<a name="gradle-android-studio" class="anchor" href="#gradle-android-studio"><span class="octicon octicon-link"></span></a>Gradle (Android Studio)</h4>
+
+<p>Insert the following dependency to <code>build.gradle</code> file of your project.</p>
+
+<div class="highlight highlight-groovy"><pre><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s1">'pl.droidsonroids.gif:android-gif-drawable:1.0.+'</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>Note that Maven central repository should be defined eg. in top-level <code>build.gradle</code> like this:</p>
+
+<div class="highlight highlight-groovy"><pre><span class="n">buildscript</span> <span class="o">{</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">allprojects</span> <span class="o">{</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<h4>
+<a name="maven-dependency" class="anchor" href="#maven-dependency"><span class="octicon octicon-link"></span></a>Maven dependency</h4>
+
+<p>SDK with API level 19 is needed. If you don't have it in your local repository, download <a href="https://github.com/mosabua/maven-android-sdk-deployer">maven-android-sdk-deployer</a>
+and install SDK level 19: <code>mvn install -P 4.4</code> (from maven-android-sdk-deployer directory). Then add dependency in <code>pom.xml</code> of your project:</p>
+
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>pl.droidsonroids.gif<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>android-gif-drawable<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>insert latest version here<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;type&gt;</span>aar<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<h4>
+<a name="proguard-configuration" class="anchor" href="#proguard-configuration"><span class="octicon octicon-link"></span></a>Proguard configuration</h4>
+
+<p>Add following line to proguard configuration file (usually <code>proguard-rules.txt</code> or <code>proguard-project.txt</code>):
+<code>-keep public class pl.droidsonroids.gif.GifIOException{*;}</code></p>
+
+<h3>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h3>
+
+<ul>
+<li>Android 1.6+ (API level 4+)</li>
+</ul>
+
+<h4>
+<a name="building-from-source" class="anchor" href="#building-from-source"><span class="octicon octicon-link"></span></a>Building from source</h4>
+
+<ul>
+<li>
+<a href="http://developer.android.com/tools/sdk/ndk/index.html">Android NDK</a> needed to compile native sources</li>
+</ul>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="sample-project" class="anchor" href="#sample-project"><span class="octicon octicon-link"></span></a><a href="https://github.com/koral--/android-gif-drawable-sample">Sample project</a>
+</h3>
+
+<p>Sample project is under construction. Not all features are covered yet.</p>
+
+<h3>
+<a name="from-xml" class="anchor" href="#from-xml"><span class="octicon octicon-link"></span></a>From XML</h3>
+
+<p>The simplest way is to use <code>GifImageView</code> (or <code>GifImageButton</code>) like a normal <code>ImageView</code>:</p>
+
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;pl.droidsonroids.gif.GifImageView</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+    <span class="na">android:src=</span><span class="s">"@drawable/src_anim"</span>
+    <span class="na">android:background=</span><span class="s">"@drawable/bg_anim"</span>
+    <span class="nt">/&gt;</span>
+</pre></div>
+
+<p>If drawables declared by <code>android:src</code> and/or <code>android:background</code> are GIF files then they 
+will be automatically recognized as <code>GifDrawable</code>s and animated. If given drawable is not a GIF then
+mentioned Views work like plain <code>ImageView</code> and <code>ImageButton</code>.</p>
+
+<p><code>GifTextView</code> allows you to use GIFs as compound drawables and background.</p>
+
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;pl.droidsonroids.gif.GifTextView</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+    <span class="na">android:drawableTop=</span><span class="s">"@drawable/left_anim"</span>
+    <span class="na">android:drawableStart=</span><span class="s">"@drawable/left_anim"</span>
+    <span class="na">android:background=</span><span class="s">"@drawable/bg_anim"</span>
+    <span class="nt">/&gt;</span>
+</pre></div>
+
+<h3>
+<a name="from-java-code" class="anchor" href="#from-java-code"><span class="octicon octicon-link"></span></a>From Java code</h3>
+
+<p><code>GifImageView</code>, <code>GifImageButton</code> and <code>GifTextView</code> have also hooks for setters implemented. So animated GIFs can be set by calling <code>setImageResource(int resId)</code> and <code>setBackgroundResource(int resId)</code></p>
+
+<p><code>GifDrawable</code> can be constructed directly from various sources:</p>
+
+<div class="highlight highlight-java"><pre>        <span class="c1">//asset file</span>
+        <span class="n">GifDrawable</span> <span class="n">gifFromAssets</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifDrawable</span><span class="o">(</span> <span class="n">getAssets</span><span class="o">(),</span> <span class="s">"anim.gif"</span> <span class="o">);</span>
+
+        <span class="c1">//resource (drawable or raw)</span>
+        <span class="n">GifDrawable</span> <span class="n">gifFromResource</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifDrawable</span><span class="o">(</span> <span class="n">getResources</span><span class="o">(),</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">anim</span> <span class="o">);</span>
+
+        <span class="c1">//byte array</span>
+        <span class="kt">byte</span><span class="o">[]</span> <span class="n">rawGifBytes</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">GifDrawable</span> <span class="n">gifFromBytes</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifDrawable</span><span class="o">(</span> <span class="n">rawGifBytes</span> <span class="o">);</span>
+
+        <span class="c1">//FileDescriptor</span>
+        <span class="n">FileDescriptor</span> <span class="n">fd</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">RandomAccessFile</span><span class="o">(</span> <span class="s">"/path/anim.gif"</span><span class="o">,</span> <span class="s">"r"</span> <span class="o">).</span><span class="na">getFD</span><span class="o">();</span>
+        <span class="n">GifDrawable</span> <span class="n">gifFromFd</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifDrawable</span><span class="o">(</span> <span class="n">fd</span> <span class="o">);</span>
+
+        <span class="c1">//file path</span>
+        <span class="n">GifDrawable</span> <span class="n">gifFromPath</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifDrawable</span><span class="o">(</span> <span class="s">"/path/anim.gif"</span> <span class="o">);</span>
+
+        <span class="c1">//file</span>
+        <span class="n">File</span> <span class="n">gifFile</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">getFilesDir</span><span class="o">(),</span><span class="s">"anim.gif"</span><span class="o">);</span>
+        <span class="n">GifDrawable</span> <span class="n">gifFromFile</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifDrawable</span><span class="o">(</span><span class="n">gifFile</span><span class="o">);</span>
+
+        <span class="c1">//AssetFileDescriptor</span>
+        <span class="n">AssetFileDescriptor</span> <span class="n">afd</span> <span class="o">=</span> <span class="n">getAssets</span><span class="o">().</span><span class="na">openFd</span><span class="o">(</span> <span class="s">"anim.gif"</span> <span class="o">);</span>
+        <span class="n">GifDrawable</span> <span class="n">gifFromAfd</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifDrawable</span><span class="o">(</span> <span class="n">afd</span> <span class="o">);</span>
+
+        <span class="c1">//InputStream (it must support marking)</span>
+        <span class="n">InputStream</span> <span class="n">sourceIs</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">BufferedInputStream</span> <span class="n">bis</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">BufferedInputStream</span><span class="o">(</span> <span class="n">sourceIs</span><span class="o">,</span> <span class="n">GIF_LENGTH</span> <span class="o">);</span>
+        <span class="n">GifDrawable</span> <span class="n">gifFromStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifDrawable</span><span class="o">(</span> <span class="n">bis</span> <span class="o">);</span>
+
+        <span class="c1">//direct ByteBuffer</span>
+        <span class="n">ByteBuffer</span> <span class="n">rawGifBytes</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="n">GifDrawable</span> <span class="n">gifFromBytes</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifDrawable</span><span class="o">(</span> <span class="n">rawGifBytes</span> <span class="o">);</span>
+
+</pre></div>
+
+<p>InputStreams are closed automatically in finalizer if GifDrawable is no longer needed 
+so you don't need to explicitly close them. Calling <code>recycle()</code> will also close 
+underlaying input source. </p>
+
+<p>Note that all input sources need to have ability to rewind to the begining. It is required to correctly play animated GIFs 
+(where animation is repeatable) since subsequent frames are decoded on demand from source.</p>
+
+<h4>
+<a name="animation-control" class="anchor" href="#animation-control"><span class="octicon octicon-link"></span></a>Animation control</h4>
+
+<p><code>GifDrawable</code> implements an <code>Animatable</code> and <code>MediaPlayerControl</code> so you can use its methods and more:</p>
+
+<ul>
+<li>
+<code>stop()</code> - stops the animation, can be called from any thread</li>
+<li>
+<code>start()</code> - starts the animation, can be called from any thread</li>
+<li>
+<code>isRunning()</code> - returns whether animation is currently running or not</li>
+<li>
+<code>reset()</code> - rewinds the animation, does not restart stopped one</li>
+<li>
+<code>setSpeed(float factor)</code> - sets new animation speed factor, eg. passing 2.0f will double the animation speed</li>
+<li>
+<code>seekTo(int position)</code> - seeks animation (within current loop) to given <code>position</code> (in milliseconds) <strong>Only seeking forward is supported</strong>
+</li>
+<li>
+<code>getDuration()</code> - returns duration of one loop of the animation</li>
+<li>
+<code>getCurrentPosition()</code> - returns elapsed time from the beginning of a current loop of animation</li>
+</ul>
+
+<h5>
+<a name="using-mediaplayercontrol" class="anchor" href="#using-mediaplayercontrol"><span class="octicon octicon-link"></span></a>Using <a href="http://developer.android.com/reference/android/widget/MediaController.MediaPlayerControl.html">MediaPlayerControl</a>
+</h5>
+
+<p>Standard controls for a MediaPlayer (like in <a href="http://developer.android.com/reference/android/widget/VideoView.html">VideoView</a>) can be used to control GIF animation and show its current progress.</p>
+
+<p>Just set <code>GifDrawable</code> as MediaPlayer on your <a href="http://developer.android.com/reference/android/widget/MediaController.html">MediaController</a> like this:</p>
+
+<div class="highlight highlight-java"><pre>    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span> <span class="o">(</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span> <span class="o">)</span>
+    <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span> <span class="n">savedInstanceState</span> <span class="o">);</span>
+        <span class="n">GifImageButton</span> <span class="n">gib</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">GifImageButton</span><span class="o">(</span> <span class="k">this</span> <span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span> <span class="n">gib</span> <span class="o">);</span>
+        <span class="n">gib</span><span class="o">.</span><span class="na">setImageResource</span><span class="o">(</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">sample</span> <span class="o">);</span>
+        <span class="kd">final</span> <span class="n">MediaController</span> <span class="n">mc</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MediaController</span><span class="o">(</span> <span class="k">this</span> <span class="o">);</span>
+        <span class="n">mc</span><span class="o">.</span><span class="na">setMediaPlayer</span><span class="o">(</span> <span class="o">(</span> <span class="n">GifDrawable</span> <span class="o">)</span> <span class="n">gib</span><span class="o">.</span><span class="na">getDrawable</span><span class="o">()</span> <span class="o">);</span>
+        <span class="n">mc</span><span class="o">.</span><span class="na">setAnchorView</span><span class="o">(</span> <span class="n">gib</span> <span class="o">);</span>
+        <span class="n">gib</span><span class="o">.</span><span class="na">setOnClickListener</span><span class="o">(</span> <span class="k">new</span> <span class="nf">OnClickListener</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span> <span class="o">(</span> <span class="n">View</span> <span class="n">v</span> <span class="o">)</span>
+            <span class="o">{</span>
+                <span class="n">mc</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="o">);</span>
+    <span class="o">}</span>
+</pre></div>
+
+<h4>
+<a name="retrieving-gif-metadata" class="anchor" href="#retrieving-gif-metadata"><span class="octicon octicon-link"></span></a>Retrieving GIF metadata</h4>
+
+<ul>
+<li>
+<code>getLoopCount()</code> - returns a loop count as defined in <code>NETSCAPE 2.0</code> extension</li>
+<li>
+<code>getNumberOfFrames()</code> - returns number of frames (at least 1)</li>
+<li>
+<code>getComment()</code> - returns comment text (<code>null</code> if GIF has no comment)</li>
+<li>
+<code>getFrameByteCount()</code> - returns minimum number of bytes that can be used to store pixels of the single frame</li>
+<li>
+<code>getAllocationByteCount()</code> - returns size (in bytes) of the allocated memory used to store pixels of given GifDrawable</li>
+<li>
+<code>getInputSourceByteCount()</code> - returns length (in bytes) of the backing input data</li>
+<li>
+<code>toString()</code> - returns human readable information about image size and number of frames (intended for debugging purpose)</li>
+</ul>
+
+<h4>
+<a name="advanced" class="anchor" href="#advanced"><span class="octicon octicon-link"></span></a>Advanced</h4>
+
+<ul>
+<li>
+<code>recycle()</code> - provided to speed up freeing memory (like in <code>android.graphics.Bitmap</code>).</li>
+<li>
+<code>getError()</code> - returns last error details</li>
+</ul>
+
+<h3>
+<a name="references" class="anchor" href="#references"><span class="octicon octicon-link"></span></a>References</h3>
+
+<p>This library uses code from <a href="http://giflib.sourceforge.net/">GIFLIB</a> 5.0.5 and <a href="https://code.google.com/p/skia/">SKIA</a>.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT License<br>
+See <a href="LICENSE">LICENSE</a> file.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
