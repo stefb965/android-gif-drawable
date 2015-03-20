@@ -56,7 +56,7 @@
 <p>Insert the following dependency to <code>build.gradle</code> file of your project.</p>
 
 <div class="highlight highlight-groovy"><pre>dependencies {
-    compile <span class="pl-s1"><span class="pl-pds">'</span>pl.droidsonroids.gif:android-gif-drawable:1.1.+<span class="pl-pds">'</span></span>
+    compile <span class="pl-s"><span class="pl-pds">'</span>pl.droidsonroids.gif:android-gif-drawable:1.1.+<span class="pl-pds">'</span></span>
 }</pre></div>
 
 <p>Note that Maven central repository should be defined eg. in top-level <code>build.gradle</code> like this:</p>
@@ -122,10 +122,10 @@ allprojects {
 <p>The simplest way is to use <code>GifImageView</code> (or <code>GifImageButton</code>) like a normal <code>ImageView</code>:</p>
 
 <div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">pl</span>.droidsonroids.gif.GifImageView
-    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_width</span>=<span class="pl-s1"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
-    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_height</span>=<span class="pl-s1"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
-    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>@drawable/src_anim<span class="pl-pds">"</span></span>
-    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">background</span>=<span class="pl-s1"><span class="pl-pds">"</span>@drawable/bg_anim<span class="pl-pds">"</span></span>
+    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_width</span>=<span class="pl-s"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
+    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_height</span>=<span class="pl-s"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
+    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>@drawable/src_anim<span class="pl-pds">"</span></span>
+    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">background</span>=<span class="pl-s"><span class="pl-pds">"</span>@drawable/bg_anim<span class="pl-pds">"</span></span>
     /&gt;</pre></div>
 
 <p>If drawables declared by <code>android:src</code> and/or <code>android:background</code> are GIF files then they 
@@ -135,11 +135,11 @@ mentioned Views work like plain <code>ImageView</code> and <code>ImageButton</co
 <p><code>GifTextView</code> allows you to use GIFs as compound drawables and background.</p>
 
 <div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">pl</span>.droidsonroids.gif.GifTextView
-    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_width</span>=<span class="pl-s1"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
-    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_height</span>=<span class="pl-s1"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
-    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">drawableTop</span>=<span class="pl-s1"><span class="pl-pds">"</span>@drawable/left_anim<span class="pl-pds">"</span></span>
-    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">drawableStart</span>=<span class="pl-s1"><span class="pl-pds">"</span>@drawable/left_anim<span class="pl-pds">"</span></span>
-    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">background</span>=<span class="pl-s1"><span class="pl-pds">"</span>@drawable/bg_anim<span class="pl-pds">"</span></span>
+    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_width</span>=<span class="pl-s"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
+    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_height</span>=<span class="pl-s"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
+    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">drawableTop</span>=<span class="pl-s"><span class="pl-pds">"</span>@drawable/left_anim<span class="pl-pds">"</span></span>
+    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">drawableStart</span>=<span class="pl-s"><span class="pl-pds">"</span>@drawable/left_anim<span class="pl-pds">"</span></span>
+    <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">background</span>=<span class="pl-s"><span class="pl-pds">"</span>@drawable/bg_anim<span class="pl-pds">"</span></span>
     /&gt;</pre></div>
 
 <h3>
@@ -150,38 +150,38 @@ mentioned Views work like plain <code>ImageView</code> and <code>ImageButton</co
 <p><code>GifDrawable</code> can be constructed directly from various sources:</p>
 
 <div class="highlight highlight-java"><pre>        <span class="pl-c">//asset file</span>
-        <span class="pl-stj">GifDrawable</span> gifFromAssets <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifDrawable</span>( getAssets(), <span class="pl-s1"><span class="pl-pds">"</span>anim.gif<span class="pl-pds">"</span></span> );
+        <span class="pl-smi">GifDrawable</span> gifFromAssets <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifDrawable</span>( getAssets(), <span class="pl-s"><span class="pl-pds">"</span>anim.gif<span class="pl-pds">"</span></span> );
 
         <span class="pl-c">//resource (drawable or raw)</span>
-        <span class="pl-stj">GifDrawable</span> gifFromResource <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifDrawable</span>( getResources(), <span class="pl-stj">R</span><span class="pl-k">.</span>drawable<span class="pl-k">.</span>anim );
+        <span class="pl-smi">GifDrawable</span> gifFromResource <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifDrawable</span>( getResources(), <span class="pl-smi">R</span><span class="pl-k">.</span>drawable<span class="pl-k">.</span>anim );
 
         <span class="pl-c">//byte array</span>
-        <span class="pl-st">byte</span>[] rawGifBytes <span class="pl-k">=</span> <span class="pl-c1">...</span>
-        <span class="pl-stj">GifDrawable</span> gifFromBytes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifDrawable</span>( rawGifBytes );
+        <span class="pl-k">byte</span>[] rawGifBytes <span class="pl-k">=</span> <span class="pl-c1">...</span>
+        <span class="pl-smi">GifDrawable</span> gifFromBytes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifDrawable</span>( rawGifBytes );
 
         <span class="pl-c">//FileDescriptor</span>
-        <span class="pl-stj">FileDescriptor</span> fd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">RandomAccessFile</span>( <span class="pl-s1"><span class="pl-pds">"</span>/path/anim.gif<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>r<span class="pl-pds">"</span></span> )<span class="pl-k">.</span>getFD();
-        <span class="pl-stj">GifDrawable</span> gifFromFd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifDrawable</span>( fd );
+        <span class="pl-smi">FileDescriptor</span> fd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">RandomAccessFile</span>( <span class="pl-s"><span class="pl-pds">"</span>/path/anim.gif<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>r<span class="pl-pds">"</span></span> )<span class="pl-k">.</span>getFD();
+        <span class="pl-smi">GifDrawable</span> gifFromFd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifDrawable</span>( fd );
 
         <span class="pl-c">//file path</span>
-        <span class="pl-stj">GifDrawable</span> gifFromPath <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifDrawable</span>( <span class="pl-s1"><span class="pl-pds">"</span>/path/anim.gif<span class="pl-pds">"</span></span> );
+        <span class="pl-smi">GifDrawable</span> gifFromPath <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifDrawable</span>( <span class="pl-s"><span class="pl-pds">"</span>/path/anim.gif<span class="pl-pds">"</span></span> );
 
         <span class="pl-c">//file</span>
-        <span class="pl-stj">File</span> gifFile <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">File</span>(getFilesDir(),<span class="pl-s1"><span class="pl-pds">"</span>anim.gif<span class="pl-pds">"</span></span>);
-        <span class="pl-stj">GifDrawable</span> gifFromFile <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifDrawable</span>(gifFile);
+        <span class="pl-smi">File</span> gifFile <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">File</span>(getFilesDir(),<span class="pl-s"><span class="pl-pds">"</span>anim.gif<span class="pl-pds">"</span></span>);
+        <span class="pl-smi">GifDrawable</span> gifFromFile <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifDrawable</span>(gifFile);
 
         <span class="pl-c">//AssetFileDescriptor</span>
-        <span class="pl-stj">AssetFileDescriptor</span> afd <span class="pl-k">=</span> getAssets()<span class="pl-k">.</span>openFd( <span class="pl-s1"><span class="pl-pds">"</span>anim.gif<span class="pl-pds">"</span></span> );
-        <span class="pl-stj">GifDrawable</span> gifFromAfd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifDrawable</span>( afd );
+        <span class="pl-smi">AssetFileDescriptor</span> afd <span class="pl-k">=</span> getAssets()<span class="pl-k">.</span>openFd( <span class="pl-s"><span class="pl-pds">"</span>anim.gif<span class="pl-pds">"</span></span> );
+        <span class="pl-smi">GifDrawable</span> gifFromAfd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifDrawable</span>( afd );
 
         <span class="pl-c">//InputStream (it must support marking)</span>
-        <span class="pl-stj">InputStream</span> sourceIs <span class="pl-k">=</span> <span class="pl-c1">...</span>
-        <span class="pl-stj">BufferedInputStream</span> bis <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">BufferedInputStream</span>( sourceIs, <span class="pl-c1">GIF_LENGTH</span> );
-        <span class="pl-stj">GifDrawable</span> gifFromStream <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifDrawable</span>( bis );
+        <span class="pl-smi">InputStream</span> sourceIs <span class="pl-k">=</span> <span class="pl-c1">...</span>
+        <span class="pl-smi">BufferedInputStream</span> bis <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">BufferedInputStream</span>( sourceIs, <span class="pl-c1">GIF_LENGTH</span> );
+        <span class="pl-smi">GifDrawable</span> gifFromStream <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifDrawable</span>( bis );
 
         <span class="pl-c">//direct ByteBuffer</span>
-        <span class="pl-stj">ByteBuffer</span> rawGifBytes <span class="pl-k">=</span> <span class="pl-c1">...</span>
-        <span class="pl-stj">GifDrawable</span> gifFromBytes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifDrawable</span>( rawGifBytes );
+        <span class="pl-smi">ByteBuffer</span> rawGifBytes <span class="pl-k">=</span> <span class="pl-c1">...</span>
+        <span class="pl-smi">GifDrawable</span> gifFromBytes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifDrawable</span>( rawGifBytes );
 </pre></div>
 
 <p>InputStreams are closed automatically in finalizer if GifDrawable is no longer needed 
@@ -224,20 +224,20 @@ underlaying input source. </p>
 
 <p>Just set <code>GifDrawable</code> as MediaPlayer on your <a href="http://developer.android.com/reference/android/widget/MediaController.html">MediaController</a> like this:</p>
 
-<div class="highlight highlight-java"><pre>    @<span class="pl-stj">Override</span>
-    <span class="pl-s">protected</span> <span class="pl-st">void</span> onCreate ( <span class="pl-stj">Bundle</span> savedInstanceState )
+<div class="highlight highlight-java"><pre>    @<span class="pl-smi">Override</span>
+    <span class="pl-k">protected</span> <span class="pl-k">void</span> onCreate ( <span class="pl-smi">Bundle</span> savedInstanceState )
     {
         <span class="pl-v">super</span><span class="pl-k">.</span>onCreate( savedInstanceState );
-        <span class="pl-stj">GifImageButton</span> gib <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">GifImageButton</span>( <span class="pl-v">this</span> );
+        <span class="pl-smi">GifImageButton</span> gib <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GifImageButton</span>( <span class="pl-v">this</span> );
         setContentView( gib );
-        gib<span class="pl-k">.</span>setImageResource( <span class="pl-stj">R</span><span class="pl-k">.</span>drawable<span class="pl-k">.</span>sample );
-        <span class="pl-s">final</span> <span class="pl-stj">MediaController</span> mc <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">MediaController</span>( <span class="pl-v">this</span> );
-        mc<span class="pl-k">.</span>setMediaPlayer( ( <span class="pl-stj">GifDrawable</span> ) gib<span class="pl-k">.</span>getDrawable() );
+        gib<span class="pl-k">.</span>setImageResource( <span class="pl-smi">R</span><span class="pl-k">.</span>drawable<span class="pl-k">.</span>sample );
+        <span class="pl-k">final</span> <span class="pl-smi">MediaController</span> mc <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">MediaController</span>( <span class="pl-v">this</span> );
+        mc<span class="pl-k">.</span>setMediaPlayer( ( <span class="pl-smi">GifDrawable</span> ) gib<span class="pl-k">.</span>getDrawable() );
         mc<span class="pl-k">.</span>setAnchorView( gib );
-        gib<span class="pl-k">.</span>setOnClickListener( <span class="pl-k">new</span> <span class="pl-stj">OnClickListener</span>()
+        gib<span class="pl-k">.</span>setOnClickListener( <span class="pl-k">new</span> <span class="pl-smi">OnClickListener</span>()
         {
-            @<span class="pl-stj">Override</span>
-            <span class="pl-s">public</span> <span class="pl-st">void</span> onClick ( <span class="pl-stj">View</span> v )
+            @<span class="pl-smi">Override</span>
+            <span class="pl-k">public</span> <span class="pl-k">void</span> onClick ( <span class="pl-smi">View</span> v )
             {
                 mc<span class="pl-k">.</span>show();
             }
