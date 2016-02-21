@@ -26,6 +26,7 @@
 #include <pthread.h>
 #include <poll.h>
 #include <errno.h>
+#include <sys/eventfd.h>
 #include "giflib/gif_lib.h"
 
 #ifdef DEBUG
@@ -97,12 +98,6 @@ typedef struct {
 	pthread_mutex_t renderMutex;
 	pthread_cond_t renderCond;
 } SurfaceDescriptor;
-
-typedef struct {
-	struct pollfd eventPollFd;
-	void *frameBuffer;
-	pthread_t slurpThread;
-} TexImageDescriptor;
 
 struct GifInfo {
 	GifFileType *gifFilePtr;

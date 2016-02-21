@@ -13,7 +13,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := pl_droidsonroids_gif
 LOCAL_CFLAGS := $(cflags)
-LOCAL_LDLIBS := -ljnigraphics $(extra_ldlibs)
+LOCAL_LDLIBS := -ljnigraphics -lGLESv2 $(extra_ldlibs)
 
 LOCAL_SRC_FILES := \
 	drawing.c \
@@ -27,6 +27,7 @@ LOCAL_SRC_FILES := \
 	surface_common.c \
 	time.c \
 	control.c \
+	opengl.c \
 	memset.arm.S \
 	giflib/dgif_lib.c \
 	giflib/gifalloc.c \

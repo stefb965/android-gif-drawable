@@ -115,6 +115,12 @@ final class GifInfoHandle {
 
 	private static native int getNumberOfFrames(long gifInfoPtr);
 
+	private static native int drawTexImage(long gifFileInPtr);
+
+	private static native int startRenderThread(long gifFileInPtr);
+
+	private static native int stopRenderThread(long gifInfoPtr);
+
 	GifInfoHandle(InputStream stream, boolean justDecodeMetaData) throws GifIOException {
 		if (!stream.markSupported()) {
 			throw new IllegalArgumentException("InputStream does not support marking");
@@ -279,5 +285,17 @@ final class GifInfoHandle {
 
 	synchronized int getNumberOfFrames() {
 		return getNumberOfFrames(gifInfoPtr);
+	}
+
+	void drawTexImage() {
+		drawTexImage(gifInfoPtr);
+	}
+
+	void startRenderThread() {
+		startRenderThread(gifInfoPtr);
+	}
+
+	void stopRenderThread() {
+		stopRenderThread(gifInfoPtr);
 	}
 }
