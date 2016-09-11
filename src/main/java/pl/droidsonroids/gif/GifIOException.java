@@ -3,6 +3,7 @@ package pl.droidsonroids.gif;
 import android.support.annotation.NonNull;
 
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * Exception encapsulating {@link GifError}s.
@@ -22,15 +23,9 @@ public class GifIOException extends IOException {
 		this.reason = reason;
 	}
 
-	@SuppressWarnings("WeakerAccess")
-		//invoked from native code
-	GifIOException(int errorCode) {
-		this(GifError.fromCode(errorCode));
-	}
-
-	static GifIOException fromCode(final int nativeErrorCode) {
-		if (nativeErrorCode == GifError.NO_ERROR.errorCode)
-			return null;
-		return new GifIOException(nativeErrorCode);
+	//invoked from native code
+	GifIOException(int errorCode, String message) {
+		super(String.format(Locale.ENGLISH, "%s %s", GifError.fromCode(errorCode).getFormattedDescription(), message));
+		reason = GifError.fromCode(errorCode);
 	}
 }

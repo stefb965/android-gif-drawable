@@ -326,7 +326,8 @@ public class GifTextureView extends TextureView {
 		if (mRenderThread.mIOException != null) {
 			return mRenderThread.mIOException;
 		} else {
-			return GifIOException.fromCode(mRenderThread.mGifInfoHandle.getNativeErrorCode());
+			final int errorCode = mRenderThread.mGifInfoHandle.getNativeErrorCode();
+			return errorCode == GifError.NO_ERROR.errorCode ? null : new GifIOException(errorCode, null);
 		}
 	}
 
